@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settingsString">Einstellungen</string>
+    <string name="exportString">Export</string>
+    <string name="medicationPlanString">Medikationsplan</string>
+</resources>
