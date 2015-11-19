@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- This xml file declares the navigation points in our main menu (drawer)
+the icons are imported from the /res/drawable folder
+@autor: johns2@bfh.ch -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_medicationPlan" android:icon="@android:drawable/ic_menu_camera"
+        <item android:id="@+id/nav_medicationPlan" android:icon="@drawable/ic_home"
             android:title="@string/medicationPlanString" />
-        <item android:id="@+id/nav_medicaments" android:icon="@android:drawable/ic_menu_gallery"
+        <item android:id="@+id/nav_medicaments" android:icon="@drawable/ic_pill"
             android:title="@string/medicamentsString" />
-        <item android:id="@+id/nav_export" android:icon="@android:drawable/ic_menu_slideshow"
+        <item android:id="@+id/nav_export" android:icon="@drawable/ic_export"
             android:title="@string/exportString" />
     </group>
 
-    <item android:title="@string/settingsString">
-        <menu>
-            <item android:id="@+id/nav_settings" android:icon="@android:drawable/ic_menu_manage"
+    <group>
+        <item android:id="@+id/nav_settings" android:icon="@drawable/ic_settings"
                 android:title="@string/settingsString" />
-        </menu>
-    </item>
-
+    </group>
 </menu>

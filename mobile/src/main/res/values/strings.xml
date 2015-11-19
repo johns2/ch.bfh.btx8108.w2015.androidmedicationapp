@@ -9,4 +9,6 @@
     <string name="exportString">Export</string>
     <string name="medicamentsString">Medikamente</string>
     <string name="medicationPlanString">Medikationsplan</string>
+    <string name="medication_plan">Medikationsplan</string>
+    <string name="drawerheadername">Elisabeth Brönnimann</string>
 </resources>
