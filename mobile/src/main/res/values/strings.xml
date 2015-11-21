@@ -11,4 +11,7 @@
     <string name="medicationPlanString">Medikationsplan</string>
     <string name="medication_plan">Medikationsplan</string>
     <string name="drawerheadername">Elisabeth Brönnimann</string>
+    <string name="title_activity_medicaments">Medicaments</string>
+    <string name="title_activity_export">Export</string>
+    <string name="title_activity_settings">Settings</string>
 </resources>
