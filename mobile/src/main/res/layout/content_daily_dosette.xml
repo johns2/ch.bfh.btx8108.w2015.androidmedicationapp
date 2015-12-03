@@ -9,6 +9,28 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_daily_dosette" tools:context=".DailyDosette">
 
-    <TextView android:text="@string/medication_plan" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+
+    <GridView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="300dp"
+        android:numColumns="4"
+        android:nestedScrollingEnabled="false"
+        android:contextClickable="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Heute, 26.11.2015 "
+        android:id="@+id/textView6"
+        android:layout_marginStart="75dp"
+        android:layout_marginBottom="230dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
