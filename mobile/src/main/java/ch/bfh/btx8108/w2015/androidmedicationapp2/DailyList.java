@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 /**
  * Created by stera_000 on 03.12.2015.
  */
-public class DailyDosette extends Fragment {
+public class DailyList extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.content_daily_dosette,container,false);
+        View v =inflater.inflate(R.layout.content_daily_list,container,false);
         return v;
     }
 }
