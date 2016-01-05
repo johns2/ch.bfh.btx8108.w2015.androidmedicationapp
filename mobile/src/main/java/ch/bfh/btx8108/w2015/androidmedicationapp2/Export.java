@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 
 public class Export extends Fragment {
         /**
+         *
+         * @Created by johns2@bfh.ch at 03.12.2015
          * This method creates a fragment for the export feature
          *
          * @param savedInstanceState Returns the saved instance state of the app

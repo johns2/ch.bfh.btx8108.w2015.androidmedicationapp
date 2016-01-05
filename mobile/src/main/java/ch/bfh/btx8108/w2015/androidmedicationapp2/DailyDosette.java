@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by stera_000 on 03.12.2015.
+ * Created by johns2@bfh.ch on 03.12.2015.
  */
 public class DailyDosette extends Fragment {
 

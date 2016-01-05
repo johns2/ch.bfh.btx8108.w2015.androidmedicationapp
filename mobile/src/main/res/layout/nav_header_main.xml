@@ -11,13 +11,14 @@
 
     <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@drawable/ic_account_circle" android:id="@+id/imageView" />
+        android:src="@drawable/ic_account_circle" android:id="@+id/nav_header_main_userImage" />
 
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing" android:text="@string/drawerheadername"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:id="@+id/nav_header_main_userName" />
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="elisabeth@broennimann.ch" android:id="@+id/textView" />
+        android:text="elisabeth@broennimann.ch" android:id="@+id/nav_header_main_mailAddress" />
 
 </LinearLayout>
