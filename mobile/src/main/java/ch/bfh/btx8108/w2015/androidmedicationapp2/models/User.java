@@ -8,8 +8,16 @@ public class User {
     private int user_id;
     private String username;
     private String firstname;
-    private String Lastname;
+    private String lastname;
     private String eMailAddress;
+
+    public User (int user_id, String username, String firstname, String lastname, String eMailAddress){
+        this.setUser_id(user_id);
+        this.setUsername(username);
+        this.setFirstname(firstname);
+        this.setLastname(lastname);
+        this.seteMailAddress(eMailAddress);
+    }
 
     public int getUser_id() {
         return user_id;
@@ -36,11 +44,11 @@ public class User {
     }
 
     public String getLastname() {
-        return Lastname;
+        return lastname;
     }
 
     public void setLastname(String lastname) {
-        Lastname = lastname;
+        lastname = lastname;
     }
 
     public String geteMailAddress() {

@@ -2,6 +2,7 @@ package ch.bfh.btx8108.w2015.androidmedicationapp2;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,8 +28,7 @@ public class Settings extends Fragment {
                 super.onViewCreated(view, savedInstanceState);
 
                 UserData UserList = new UserData(this.getContext());
-
-                mString = UserList.getAllUsers().get(0);
+                mString = UserList.getUserObjects().get(1).getUsername();
                 mTextView = (TextView)view.findViewById(R.id.settings_UserName);
 
                 mTextView.setText(mString);
