@@ -1,4 +1,4 @@
-package ch.bfh.btx8108.w2015.androidmedicationapp2;
+package ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController;
 
 import android.support.v4.app.FragmentManager;
 import android.support.annotation.Nullable;
@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import ch.bfh.btx8108.w2015.androidmedicationapp2.R;
 
 /**
  * @Created by johns2@bfh.ch at 26.11.2015.

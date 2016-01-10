@@ -1,5 +1,6 @@
-package ch.bfh.btx8108.w2015.androidmedicationapp2;
+package ch.bfh.btx8108.w2015.androidmedicationapp2.databaseController;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
@@ -17,7 +18,7 @@ import java.io.OutputStream;
  * @Created by johns2@bfh.ch at 05.01.2016.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "/data/local/tmp/medicationapp_test_17122015.db";
+    private static final String DATABASE_NAME = "/data/data/ch.bfh.btx8108.w2015.androidmedicationapp2/databases/medicationapp.db";
     private Context context;
     private SQLiteDatabase db;
 
@@ -26,7 +27,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public DatabaseHelper (Context context){
-
         super(context, DATABASE_NAME , null, 1);
         this.context = context;
         if (checkDataBase()) {
@@ -109,9 +109,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Cursor getData(String query){
-        //SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery(query, null );
+        Cursor res =  db.rawQuery(query, null);
         return res;
+    }
+
+    public boolean insertRecord (String tableName, ContentValues contentValues){
+        db = this.getWritableDatabase();
+        db.insert(tableName, null, contentValues);
+        return true;
+    }
+
+    public boolean updateRecord (String tableName, String idName, Integer id, ContentValues contentValues){
+        try {
+            db.update(tableName, contentValues, idName + "=?", new String[]{Integer.toString(id)});
+        } catch (SQLiteException e) {
+            Log.i("db log", e.toString());
+        }
+        return true;
+    }
+
+    public Integer deleteRecord(String tableName, String idName, Integer id){
+        return db.delete(tableName,
+                idName+ " = ? ",
+                new String[] { Integer.toString(id) });
     }
 
     @Override

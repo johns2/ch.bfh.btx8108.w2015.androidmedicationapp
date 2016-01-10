@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidMedicationApp2</string>
+    <string name="app_name">MedMinder</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -9,9 +9,9 @@
     <string name="exportString">Export</string>
     <string name="medicamentsString">Medikamente</string>
     <string name="medicationPlanString">Medikationsplan</string>
-    <string name="medication_plan">Medikationsplan</string>
-    <string name="drawerheadername">Elisabeth Brönnimann</string>
+    <string name="drawerheadername">username</string>
     <string name="title_activity_medicaments">Medicaments</string>
     <string name="title_activity_export">Export</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="benutzerkontenString">Benutzerkonten</string>
 </resources>
