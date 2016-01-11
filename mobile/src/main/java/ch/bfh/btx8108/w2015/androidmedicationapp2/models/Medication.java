@@ -3,11 +3,13 @@ package ch.bfh.btx8108.w2015.androidmedicationapp2.models;
 /**
  * Created by David on 11.11.2015.
  * Medication class that defines a classic medicament with name, dose, substance, etc.
+ *
+ * Available attributes see https://index.ws.e-mediat.net/DataDoc/element/ARTICLE / 10.01.2016
  */
 public class Medication {
 
     private int id_medication; //example: 1
-    private int product_number; //example: 123
+    private int product_number; //example: 32511
     private String long_name_german; //example: Aspirin Cardio Filmtabl 100 mg 28 Stk
     private String long_name_french; //example: Aspirine Cardio cpr pell 100 mg 28 pce
     private String short_name_german; //example: ASPIRIN CARDIO Filmtabl 100 mg 28 Stk
@@ -20,22 +22,26 @@ public class Medication {
 
 
     //------------------------ Constructors ----------------------------------------------
+    public Medication(){
+
+    }
+
     /**
      *Constructor to create a new medicament knowing all information.
-     *
+     * @param product_number
      * @param long_name_german German name of Medicament - example: Dafalgan 0.5g
-     * @param consistence Kind of consistence - example: pill, fluid, salve
-     * @param dose Dose - example: 0.5, 500
-     * @param dose_unit Dose unit - example: g, mg, ml
-     * @param barcode Barcode - example: 948129383921
+     * @param long_name_french
+     * @param short_name_german
+     * @param short_name_french
      */
-    public Medication(String long_name_german, String consistence, double dose, String dose_unit, int barcode){
+    public Medication(int id_medication,  int product_number, String long_name_german, String long_name_french,
+                      String short_name_german, String short_name_french){
+        this.id_medication = id_medication;
+        this.product_number = product_number;
         this.long_name_german = long_name_german;
-        this.consistence = consistence;
-        this.dose = dose;
-        this.dose_unit = dose_unit;
-        this.barcode = barcode;
-
+        this.long_name_french = long_name_french;
+        this.short_name_german = short_name_german;
+        this.short_name_french = short_name_french;
     }
 
     /**
@@ -49,14 +55,6 @@ public class Medication {
 
 
     //---------------- Getter and Setter ------------------------------------------------
-    public String getLong_name_german() {
-        return long_name_german;
-    }
-
-    public void setLong_name_german(String long_name_german) {
-        this.long_name_german = long_name_german;
-    }
-
     public int getId_medication() {
         return id_medication;
     }
@@ -71,6 +69,14 @@ public class Medication {
 
     public void setProduct_number(int product_number) {
         this.product_number = product_number;
+    }
+
+    public String getLong_name_german() {
+        return long_name_german;
+    }
+
+    public void setLong_name_german(String long_name_german) {
+        this.long_name_german = long_name_german;
     }
 
     public String getLong_name_french() {

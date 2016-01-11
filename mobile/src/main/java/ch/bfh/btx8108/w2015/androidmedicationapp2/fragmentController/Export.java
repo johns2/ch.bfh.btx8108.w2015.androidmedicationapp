@@ -11,7 +11,7 @@ import ch.bfh.btx8108.w2015.androidmedicationapp2.R;
 public class Export extends Fragment {
         /**
          *
-         * @Created by johns2@bfh.ch at 03.12.2015
+         * @Created by johns2@bfh.ch on 03.12.2015
          * This method creates a fragment for the export feature
          *
          * @param savedInstanceState Returns the saved instance state of the app

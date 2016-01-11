@@ -6,6 +6,14 @@ package ch.bfh.btx8108.w2015.androidmedicationapp2.databaseController;
         import android.util.SparseArray;
         import ch.bfh.btx8108.w2015.androidmedicationapp2.models.User;
 
+/**
+ *
+ * @Created by johns2@bfh.ch on 17.12.2015
+ *
+ * This helper/adapter class prepares the required sql statements for providing data concerning user data.
+ * This class extends the class DatabaseHelper with passing prepared sql statements to it
+ *
+ */
 public class UserData extends DatabaseHelper {
 
     private static final String USERS_TABLE_NAME = "users";

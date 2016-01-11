@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * @Created by johns2@bfh.ch at 05.01.2016.
+ * @Created by johns2@bfh.ch on 05.01.2016.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "/data/data/ch.bfh.btx8108.w2015.androidmedicationapp2/databases/medicationapp.db";

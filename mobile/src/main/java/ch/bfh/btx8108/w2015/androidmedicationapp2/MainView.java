@@ -11,20 +11,22 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import ch.bfh.btx8108.w2015.androidmedicationapp2.databaseController.MedicationData;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.databaseController.UserData;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.DailyTabs;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.Export;
-import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.Medicaments;
+import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.Medications;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.Settings;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.models.User;
 
 /**
  * This java classes handles as a controller the starting view MainView
  *
- * @Created by johns2@bfh.ch at 05.11.2015
+ * @Created by johns2@bfh.ch on 05.11.2015
  */
 
 public class MainView extends AppCompatActivity {
@@ -72,10 +74,7 @@ public static final int LOGGED_IN_USER_ID = 1;
                             fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.containerView, new DailyTabs()).commit();
                 } else if (id == R.id.nav_medicaments) {
-                    // Handle the medicationPlan
-                    FragmentTransaction fragmentTransaction =
-                            fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView, new Medicaments()).commit();
+                    openMedicationsFragment(fragmentManager);
                 } else if (id == R.id.nav_export) {
                     // Handle the export feature
                     FragmentTransaction fragmentTransaction =
@@ -101,6 +100,15 @@ public static final int LOGGED_IN_USER_ID = 1;
         mDrawerToggle.syncState();
     }
 
+    public void openMedicationsFragment(FragmentManager fragmentManager){
+        // Handle the medications fragment
+        Medications newMedicationsFragment = new Medications();
+        newMedicationsFragment.initMedicationsList(this.getMedicationsList(newMedicationsFragment.getContext()));
+        FragmentTransaction fragmentTransaction =
+                fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.containerView, newMedicationsFragment).commit();
+    }
+
     public void openSettingsFragment(FragmentManager fragmentManager){
         // Handle the settings fragment
         Bundle dataBundle = new Bundle();
@@ -113,6 +121,11 @@ public static final int LOGGED_IN_USER_ID = 1;
         FragmentTransaction fragmentTransaction =
                 fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.containerView, newSettingsFragment).commit();
+    }
+
+    public ArrayList getMedicationsList(Context fragmentContext){
+        MedicationData medicationsList = new MedicationData(fragmentContext);
+        return medicationsList.getMedicationsListByAttribute("LongNameGerman");
     }
 
     public User getCurrentUserObject(Context fragmentContext){

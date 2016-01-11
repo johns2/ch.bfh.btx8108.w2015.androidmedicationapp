@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.R;
 
 /**
- * @Created by johns2@bfh.ch at 03.12.2015.
+ * @Created by johns2@bfh.ch on 03.12.2015.
  */
 public class DailyList extends Fragment {
 

@@ -11,13 +11,12 @@ import android.widget.TextView;
 
 import ch.bfh.btx8108.w2015.androidmedicationapp2.MainView;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.R;
-import ch.bfh.btx8108.w2015.androidmedicationapp2.databaseController.UserData;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.models.User;
 
 public class Settings extends Fragment {
         /**
          *
-         * @Created by johns2@bfh.ch at 03.12.2015.
+         * @Created by johns2@bfh.ch on 03.12.2015.
          * This method creates a fragment for the settings
          *
          * @param savedInstanceState Returns the saved instance state of the app

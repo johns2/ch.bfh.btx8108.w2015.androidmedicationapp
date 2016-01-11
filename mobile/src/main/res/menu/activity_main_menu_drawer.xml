@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- This xml file declares the navigation points in our main menu (drawer)
 the icons are imported from the /res/drawable folder
-@Created by johns2@bfh.ch at 18.11.2015 -->
+@Created by johns2@bfh.ch on 18.11.2015 -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <!-- This group includes the links to the main feature points of our app in the main menu drawer,
     these are:
     - Medication plan
-    - Medicaments
+    - Medications
     - Export
     -->
     <group android:checkableBehavior="single">
