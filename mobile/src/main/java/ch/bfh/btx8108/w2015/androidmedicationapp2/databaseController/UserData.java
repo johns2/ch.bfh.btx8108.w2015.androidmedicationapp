@@ -10,7 +10,7 @@ package ch.bfh.btx8108.w2015.androidmedicationapp2.databaseController;
  *
  * @Created by johns2@bfh.ch on 17.12.2015
  *
- * This helper/adapter class prepares the required sql statements for providing data concerning user data.
+ * This helper/adapter class prepares the required sql statements for providing user data.
  * This class extends the class DatabaseHelper with passing prepared sql statements to it
  *
  */

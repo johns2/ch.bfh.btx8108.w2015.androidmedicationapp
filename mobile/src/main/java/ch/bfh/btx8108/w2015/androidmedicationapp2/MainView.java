@@ -124,7 +124,7 @@ public static final int LOGGED_IN_USER_ID = 1;
     }
 
     public ArrayList getMedicationsList(Context fragmentContext){
-        MedicationData medicationsList = new MedicationData(fragmentContext);
+        MedicationData medicationsList = new MedicationData(fragmentContext, LOGGED_IN_USER_ID);
         return medicationsList.getMedicationsListByAttribute("LongNameGerman");
     }
 

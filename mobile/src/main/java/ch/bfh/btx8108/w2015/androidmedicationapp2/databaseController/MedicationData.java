@@ -8,21 +8,31 @@ import java.util.ArrayList;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.models.Medication;
 
 /**
- * @Created by johns2@bfh.ch on 10.01.2016.
+ * @Created by johns2@bfh.ch on 10.01.2016
+ *
+ * This helper/adapter class prepares the required sql statements for providing medication data.
+ * This class extends the class DatabaseHelper with passing prepared sql statements to it
+ *
  */
 public class MedicationData extends DatabaseHelper{
     private static final String MEDICAMENTS_TABLE_NAME = "medications";
+    private int logged_in_user_id;
     private ArrayList<Medication> medicationsList;
     private ArrayList<String> medicationListByAttribute;
 
-    public MedicationData(Context context) {
+    public MedicationData(Context context, int logged_in_user_id) {
         super(context);
+        this.logged_in_user_id = logged_in_user_id;
     }
 
     public Cursor getData(){
-        Cursor res =  super.getData("select id_medication, ProductNumber, LongNameGerman, LongNameFrench, " +
-                "ShortNameGerman, ShortNameFrench, Consistence, Dose, DoseUnit, Barcode, ATCCode " +
-                "from " + MEDICAMENTS_TABLE_NAME + ";");
+        Cursor res =  super.getData("SELECT id_medication, ProductNumber, LongNameGerman, LongNameFrench, " +
+                "ShortNameGerman, ShortNameFrench, Consistence, Dose, DoseUnit, Barcode, ATCCode" +
+                " FROM " + MEDICAMENTS_TABLE_NAME +
+                " INNER JOIN medicationList ON medications.id_medication = medicationList.medication_id" +
+                " WHERE medicationList.user_id = " + logged_in_user_id +
+                " GROUP BY medicationList.medication_id" +
+                " ORDER BY medications.LongNameGerman;");
         return res;
     }
 

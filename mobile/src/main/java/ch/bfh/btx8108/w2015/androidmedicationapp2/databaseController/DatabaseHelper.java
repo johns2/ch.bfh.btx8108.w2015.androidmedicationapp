@@ -4,11 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,6 +20,8 @@ import java.io.OutputStream;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "/data/data/ch.bfh.btx8108.w2015.androidmedicationapp2/databases/medicationapp.db";
+    //private static final String DATABASE_NAME = "/sdcard/data/ch.bfh.btx8108.w2015.androidmedicationapp2/databases/medicationapp.db";
+    //private static final String DATABASE_NAME = "medicationapp.db";
     private Context context;
     private SQLiteDatabase db;
 
@@ -108,8 +111,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Cursor getData(String query){
-        Cursor res =  db.rawQuery(query, null);
+    public Cursor getData(String query) {
+        Cursor res = null;
+        try {
+            res = db.rawQuery(query, null);
+        } catch (SQLException e) {
+            Log.e("SQL Exception", "sql exception: ", e);
+        } catch (Exception ex) {
+            Log.e("other exception", "other exception: ", ex);
+        }
         return res;
     }
 
