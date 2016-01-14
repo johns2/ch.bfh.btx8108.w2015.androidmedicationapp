@@ -31,13 +31,11 @@ private ArrayList<Medications> medicationsList;
         super.onViewCreated(view, savedInstanceState);
         // We get the ListView component from the layout
         ListView listView = (ListView) view.findViewById(R.id.medicamentsListView);
-        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
         //Array adapter provides data of the ArrayList to the ListView
         ArrayAdapter arrayAdapter = new ArrayAdapter(this.getContext(),
                 android.R.layout.simple_list_item_1, medicationsList);
         listView.setAdapter(arrayAdapter);
-        listView.setSelector(new ColorDrawable(0));
     }
 
     public void initMedicationsList(ArrayList<Medications> medicationsList){

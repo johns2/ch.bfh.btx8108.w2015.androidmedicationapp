@@ -109,6 +109,15 @@ public static final int LOGGED_IN_USER_ID = 1;
         fragmentTransaction.replace(R.id.containerView, newMedicationsFragment).commit();
     }
 
+    public void openAddMedicationsFragment(FragmentManager fragmentManager){
+        // Handle the medications fragment
+        Medications newMedicationsFragment = new Medications();
+        newMedicationsFragment.initMedicationsList(this.getMedicationsList(newMedicationsFragment.getContext()));
+        FragmentTransaction fragmentTransaction =
+                fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.containerView, newMedicationsFragment).commit();
+    }
+
     public void openSettingsFragment(FragmentManager fragmentManager){
         // Handle the settings fragment
         Bundle dataBundle = new Bundle();

@@ -10,39 +10,29 @@
     tools:context=".MainView">
 
 
-  <TextView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Heute, 26.11.2015 "
         android:id="@+id/textView6"
-      android:layout_alignParentTop="true"
-      android:layout_alignParentStart="true"
-      android:layout_marginTop="31dp" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="31dp" />
 
-    <TableRow
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/textView6"
-        android:layout_alignParentStart="true">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/listView"
-            android:layout_weight="1"
-            android:choiceMode="multipleChoice" />
-    </TableRow>
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:src="@android:drawable/ic_menu_add"
+            />
+    </FrameLayout>
 
 </RelativeLayout>
