@@ -101,6 +101,20 @@
                 android:layout_below="@+id/settings_switchNotifications"
                 android:layout_alignEnd="@+id/settings_switchNotifications" />
 
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notification"
+                android:id="@+id/notification"
+                android:layout_marginTop="51dp"
+                android:checked="false"
+                android:splitTrack="false"
+                android:singleLine="false"
+                android:switchPadding="85dp"
+                android:layout_below="@+id/settings_switchNotifications"
+                android:layout_alignEnd="@+id/settings_switchNotifications"
+                android:onClick="notifyMe" />
+
         </LinearLayout>
 
     </LinearLayout>
