@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import ch.bfh.btx8108.w2015.androidmedicationapp2.MainView;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.R;
 
 /**
@@ -46,11 +47,12 @@ public class DailyTabs extends Fragment {
         }
 
         public Fragment getItem(int position) {
+            MainView mainView = new MainView();
             switch (position) {
                 case 0:
-                    return new DailyDosette();
+                    return mainView.openDailyDosette();
                 case 1:
-                    return new DailyList();
+                    return mainView.openDailyPlan();
             }
             return null;
         }

@@ -1,6 +1,10 @@
 package ch.bfh.btx8108.w2015.androidmedicationapp2.models;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.Date;
 import java.util.List;
 import java.sql.Time;
 
@@ -11,98 +15,112 @@ import java.sql.Time;
  */
 public class MedicationPlan {
 
-    private List<Medication> medicationList;
-    private Time morning;
-    private Time noon;
-    private Time evening;
-    private Time night;
-    private int morning_sum;
-    private int noon_sum;
-    private int evening_sum;
-    private int night_sum;
+    private int medicationPlan_id;
+    private int medication_id;
+    private double applied_dose_morning;
+    private double applied_dose_noon;
+    private double applied_dose_evening;
+    private double applied_dose_night;
+    private String start_date;
+    private String end_date;
+    private String medicamentName_D;
 
-
-    /**
-     * Adds a new medicament to the list.
-     *
-     * @param medication - The new medicament to add to list.
-     */
-    public void addMedication (Medication medication){
-
-        medicationList.add(medication);
+    public int getMedicationPlan_id() {
+        return medicationPlan_id;
     }
 
-    /**
-     * Removes the given medicament from the list.
-     *
-     * @param medication - The medicament that should be removed from the list.
-     */
-    public void removeMedication (Medication medication){
-
-        medicationList.remove(medication);
+    public void setMedicationPlan_id(int medicationPlan_id) {
+        this.medicationPlan_id = medicationPlan_id;
     }
 
-    public Time getMorning() {
-        return morning;
+    public int getMedication_id() {
+        return medication_id;
     }
 
-    public void setMorning(Time morning) {
-        this.morning = morning;
+    public void setMedication_id(int medication_id) {
+        this.medication_id = medication_id;
     }
 
-    public Time getNoon() {
-        return noon;
+    public double getApplied_dose_morning() {
+        return applied_dose_morning;
     }
 
-    public void setNoon(Time noon) {
-        this.noon = noon;
+    public void setApplied_dose_morning(double applied_dose_morning) {
+        this.applied_dose_morning = applied_dose_morning;
     }
 
-    public Time getEvening() {
-        return evening;
+    public double getApplied_dose_noon() {
+        return applied_dose_noon;
     }
 
-    public void setEvening(Time evening) {
-        this.evening = evening;
+    public void setApplied_dose_noon(double applied_dose_noon) {
+        this.applied_dose_noon = applied_dose_noon;
     }
 
-    public Time getNight() {
-        return night;
+    public double getApplied_dose_evening() {
+        return applied_dose_evening;
     }
 
-    public void setNight(Time night) {
-        this.night = night;
+    public void setApplied_dose_evening(double applied_dose_evening) {
+        this.applied_dose_evening = applied_dose_evening;
     }
 
-    public int getMorning_sum() {
-        return morning_sum;
+    public double getApplied_dose_night() {
+        return applied_dose_night;
     }
 
-    public void setMorning_sum(int morning_sum) {
-        this.morning_sum = morning_sum;
+    public void setApplied_dose_night(double applied_dose_night) {
+        this.applied_dose_night = applied_dose_night;
     }
 
-    public int getNoon_sum() {
-        return noon_sum;
+    public String getStart_date() {
+        return start_date;
     }
 
-    public void setNoon_sum(int noon_sum) {
-        this.noon_sum = noon_sum;
+    public void setStart_date(String start_date) {
+        this.start_date = start_date;
     }
 
-    public int getEvening_sum() {
-        return evening_sum;
+    public String getEnd_date() {
+        return end_date;
     }
 
-    public void setEvening_sum(int evening_sum) {
-        this.evening_sum = evening_sum;
+    public void setEnd_date(String end_date) {
+        this.end_date = end_date;
     }
 
-    public int getNight_sum() {
-        return night_sum;
+    public String getMedicamentName_D() {
+        return medicamentName_D;
     }
 
-    public void setNight_sum(int night_sum) {
-        this.night_sum = night_sum;
+    public void setMedicamentName_D(String medicamentName_D) {
+        this.medicamentName_D = medicamentName_D;
+    }
+
+    public static final Parcelable.Creator<MedicationPlan> CREATOR = new Parcelable.Creator<MedicationPlan>() {
+        public MedicationPlan createFromParcel(Parcel source) {
+            MedicationPlan mMedicationPlan = new MedicationPlan();
+            mMedicationPlan.applied_dose_morning = source.readDouble();
+            mMedicationPlan.applied_dose_noon = source.readDouble();
+            mMedicationPlan.applied_dose_evening = source.readDouble();
+            mMedicationPlan.applied_dose_night = source.readDouble();
+            return mMedicationPlan;
+        }
+
+        @Override
+        public MedicationPlan[] newArray(int size) {
+            return new MedicationPlan[0];
+        }
+    };
+
+    public int describeContents() {
+        return 0;
+    }
+
+    public void writeToParcel(Parcel parcel, int flags){
+        parcel.writeDouble(applied_dose_morning);
+        parcel.writeDouble(applied_dose_noon);
+        parcel.writeDouble(applied_dose_evening);
+        parcel.writeDouble(applied_dose_night);
     }
 }

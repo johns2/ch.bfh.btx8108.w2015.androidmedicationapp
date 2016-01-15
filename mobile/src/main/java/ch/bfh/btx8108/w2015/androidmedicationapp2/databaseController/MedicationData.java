@@ -30,7 +30,7 @@ public class MedicationData extends DatabaseHelper{
                 "ShortNameGerman, ShortNameFrench, Consistence, Dose, DoseUnit, Barcode, ATCCode" +
                 " FROM " + MEDICAMENTS_TABLE_NAME +
                 " INNER JOIN medicationList ON medications.id_medication = medicationList.medication_id" +
-                " WHERE medicationList.user_id = " + logged_in_user_id +
+                " WHERE medicationList.StartDate <= date('now') AND medicationList.EndDate >= date('now') AND medicationList.user_id = " + logged_in_user_id +
                 " GROUP BY medicationList.medication_id" +
                 " ORDER BY medications.LongNameGerman;");
         return res;

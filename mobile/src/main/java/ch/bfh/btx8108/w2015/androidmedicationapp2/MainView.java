@@ -16,11 +16,15 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import ch.bfh.btx8108.w2015.androidmedicationapp2.databaseController.MedicationData;
+import ch.bfh.btx8108.w2015.androidmedicationapp2.databaseController.MedicationListData;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.databaseController.UserData;
+import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.DailyDosette;
+import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.DailyList;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.DailyTabs;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.Export;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.Medications;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.Settings;
+import ch.bfh.btx8108.w2015.androidmedicationapp2.models.MedicationPlan;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.models.User;
 
 /**
@@ -100,7 +104,50 @@ public static final int LOGGED_IN_USER_ID = 1;
         mDrawerToggle.syncState();
     }
 
+    public DailyDosette openDailyDosette(){
+        // Handle the daily tabs
+        DailyDosette newDailyDosette = new DailyDosette();
+        Bundle dataBundle = new Bundle();
+        double[] dailyDosetteNumbers = this.getCurrentDosette(newDailyDosette.getContext());
+        dataBundle.putDoubleArray("DOSETTENUMBERS", dailyDosetteNumbers);
+
+        newDailyDosette.setArguments(dataBundle);
+
+        return newDailyDosette;
+    }
+
+    public DailyList openDailyPlan(){
+        DailyList newDailyList = new DailyList();
+        //newDailyList.initMedicationPlan(this.getCurrentMedicationPlan(newDailyList.getContext()));
+        Bundle dataBundle = new Bundle();
+        ArrayList medicationPlan = this.getCurrentMedicationPlan(newDailyList.getContext());
+        dataBundle.putParcelableArrayList("MEDICATIONPLAN", medicationPlan);
+
+        newDailyList.setArguments(dataBundle);
+
+        return newDailyList;
+    }
+
+    public ArrayList getCurrentMedicationPlan(Context fragmentContext){
+        MedicationListData currentMedicationList = new MedicationListData(fragmentContext, LOGGED_IN_USER_ID);
+        return currentMedicationList.getMedicationPlanList();
+    }
+
+    public double[] getCurrentDosette(Context fragmentContext){
+        MedicationListData currentDosette = new MedicationListData(fragmentContext, LOGGED_IN_USER_ID);
+        return currentDosette.getCurrentDosette();
+    }
+
     public void openMedicationsFragment(FragmentManager fragmentManager){
+        // Handle the medications fragment
+        Medications newMedicationsFragment = new Medications();
+        newMedicationsFragment.initMedicationsList(this.getMedicationsList(newMedicationsFragment.getContext()));
+        FragmentTransaction fragmentTransaction =
+                fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.containerView, newMedicationsFragment).commit();
+    }
+
+    public void openAddMedicationsFragment(FragmentManager fragmentManager){
         // Handle the medications fragment
         Medications newMedicationsFragment = new Medications();
         newMedicationsFragment.initMedicationsList(this.getMedicationsList(newMedicationsFragment.getContext()));
@@ -124,7 +171,7 @@ public static final int LOGGED_IN_USER_ID = 1;
     }
 
     public ArrayList getMedicationsList(Context fragmentContext){
-        MedicationData medicationsList = new MedicationData(fragmentContext);
+        MedicationData medicationsList = new MedicationData(fragmentContext, LOGGED_IN_USER_ID);
         return medicationsList.getMedicationsListByAttribute("LongNameGerman");
     }
 

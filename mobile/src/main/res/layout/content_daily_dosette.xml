@@ -28,54 +28,127 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <TextView
-                    android:id="@+id/dailyDosetteMorningText"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:padding="5dp"
-                    android:text="TextView"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:background="#9e9e9e"
-                        android:layout_margin="5dp" />
-                    <TextView
-                        android:id="@+id/dailyDosetteNoonText"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:padding="5dp"
-                        android:text="TextView"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:background="#9e9e9e"
-                        android:layout_margin="5dp"/>
-                    <TextView
-                        android:id="@+id/dailyDosetteEveningText"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:padding="5dp"
-                        android:text="TextView"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:background="#9e9e9e"
-                        android:layout_margin="5dp"/>
-                    <TextView
-                        android:id="@+id/dailyDosetteNightText"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:padding="5dp"
-                        android:text="TextView"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:background="#9e9e9e"
-                        android:layout_margin="5dp"/>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/dailyDosetteMorningText"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:padding="5dp"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:background="#9e9e9e"
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Morgen"
+                            android:id="@+id/Morgen"
+                            android:layout_gravity="center_horizontal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/dailyDosetteNoonText"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:padding="5dp"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:background="#9e9e9e"
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mittag"
+                            android:id="@+id/Mittag"
+                            android:layout_gravity="center_horizontal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/dailyDosetteEveningText"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:padding="5dp"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:background="#9e9e9e"
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Abend"
+                            android:id="@+id/Abend"
+                            android:layout_gravity="center_horizontal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/dailyDosetteNightText"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:padding="5dp"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:background="#9e9e9e"
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nacht"
+                            android:id="@+id/Nacht"
+                            android:layout_gravity="center_horizontal" />
+                    </LinearLayout>
+
                 </TableRow>
             </TableLayout>
 
-            <TextView
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Heute, 26.11.2015 "
-                android:id="@+id/textView6"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center" />
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Ihr Dosett vom"
+                    android:id="@+id/YourDosette"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/todaysDate" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
