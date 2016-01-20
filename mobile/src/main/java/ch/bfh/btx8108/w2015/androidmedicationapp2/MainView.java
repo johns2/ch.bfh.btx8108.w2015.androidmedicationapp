@@ -1,10 +1,13 @@
 package ch.bfh.btx8108.w2015.androidmedicationapp2;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,6 +15,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
+import android.support.v4.app.NotificationCompat.WearableExtender;
 
 import java.util.ArrayList;
 
@@ -185,6 +191,19 @@ public static final int LOGGED_IN_USER_ID = 1;
         UserList.updateUser(currentUser.getUser_id(), currentUser.getUsername(), currentUser.getFirstname(),
                 currentUser.getLastname(), currentUser.geteMailAddress(), currentUser.getMute(),
                 currentUser.getNotificationSound(), currentUser.getNotificationVibration());
+    }
+
+    public void notifyMe(View view){
+        NotificationManager notificationManager = null;
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setContentTitle("MedMinder");
+        builder.setContentText("Bitte beachten Sie Ihr heutiges Dosett");
+        builder.setSmallIcon(R.mipmap.medmind_logo_48x);
+        builder.setTicker("Update von MedMinder");
+        builder.extend(new WearableExtender());
+
+        notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(1, builder.build());
     }
 
     @Override

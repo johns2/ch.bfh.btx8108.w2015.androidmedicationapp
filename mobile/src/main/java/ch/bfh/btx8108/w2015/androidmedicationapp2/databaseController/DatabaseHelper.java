@@ -20,8 +20,6 @@ import java.io.OutputStream;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "/data/data/ch.bfh.btx8108.w2015.androidmedicationapp2/databases/medicationapp.db";
-    //private static final String DATABASE_NAME = "/sdcard/data/ch.bfh.btx8108.w2015.androidmedicationapp2/databases/medicationapp.db";
-    //private static final String DATABASE_NAME = "medicationapp.db";
     private Context context;
     private SQLiteDatabase db;
 
