@@ -47,26 +47,29 @@ public static final int LOGGED_IN_USER_ID = 1;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DailyTabs dailyTabs = new DailyTabs();
+        //MainView activity will be shown
         setContentView(R.layout.activity_main);
 
+        //Create navigation drawer
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
+        //Create navigation view
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 
-        //set username in drawer_header
+        //Create header view of navigation (drawer_header) and set username and mail address of the current user
         View headerView = navigationView.inflateHeaderView(R.layout.nav_header_main);
         TextView navigationUsername = (TextView)headerView.findViewById(R.id.nav_header_main_userName);
         navigationUsername.setText(this.getCurrentUserObject(this.getApplicationContext()).getUsername());
         TextView navigationMailAddress = (TextView)headerView.findViewById(R.id.nav_header_main_mailAddress);
         navigationMailAddress.setText(this.getCurrentUserObject(this.getApplicationContext()).geteMailAddress());
 
-
+        //Initialize the fragment manager and set view showed up while starting the application (daily tabs)
         final FragmentManager fragmentManager;
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.containerView, new DailyTabs()).commit();
 
+        //Declare a listener
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -75,18 +78,20 @@ public static final int LOGGED_IN_USER_ID = 1;
                 int id = menuItem.getItemId();
 
                 if (id == R.id.nav_medicationPlan) {
-                    // Handle the daily tabs
+                    // Call the method which opens the sliding tabs fragment
                     FragmentTransaction fragmentTransaction =
                             fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.containerView, new DailyTabs()).commit();
                 } else if (id == R.id.nav_medicaments) {
+                    // Call the method which opens the medications fragment
                     openMedicationsFragment(fragmentManager);
                 } else if (id == R.id.nav_export) {
-                    // Handle the export feature
+                    // Show the export feature
                     FragmentTransaction fragmentTransaction =
                             fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.containerView, new Export()).commit();
                 } else if (id == R.id.nav_settings) {
+                    // Call the method which opens the settings fragment
                     openSettingsFragment(fragmentManager);
                 }
                 return false;
@@ -119,17 +124,23 @@ public static final int LOGGED_IN_USER_ID = 1;
     }
 
     public DailyList openDailyPlan(){
+        //Initialize a new daily list fragment
         DailyList newDailyList = new DailyList();
-        //newDailyList.initMedicationPlan(this.getCurrentMedicationPlan(newDailyList.getContext()));
+
+        /*Initalize a bundle which will contain a parcelable array list with the medication plan
+        data which are provided by the method
+         */
         Bundle dataBundle = new Bundle();
         ArrayList medicationPlan = this.getCurrentMedicationPlan(newDailyList.getContext());
         dataBundle.putParcelableArrayList("MEDICATIONPLAN", medicationPlan);
 
+        //Send the daily list fragment the created bundle as an argument
         newDailyList.setArguments(dataBundle);
 
         return newDailyList;
     }
 
+    //This method calls the user related data of a medication list and returns the objects in an array list
     public ArrayList getCurrentMedicationPlan(Context fragmentContext){
         MedicationListData currentMedicationList = new MedicationListData(fragmentContext, LOGGED_IN_USER_ID);
         return currentMedicationList.getMedicationPlanList();
@@ -189,15 +200,22 @@ public static final int LOGGED_IN_USER_ID = 1;
                 currentUser.getNotificationSound(), currentUser.getNotificationVibration());
     }
 
+    //This method triggers an synchronous android notification on a smartphone AND smartwatch
     public void notifyMe(View view){
+        //Initialize a NotificationManager object
         NotificationManager notificationManager = null;
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+
+        //Define context of the notification (text and logo)
         builder.setContentTitle("MedMinder");
         builder.setContentText("Bitte beachten Sie Ihr heutiges Dosett");
         builder.setSmallIcon(R.mipmap.medmind_logo_48x);
         builder.setTicker("Update von MedMinder");
+
+        //Define, that a notification on the conntected smartwatch should be triggered
         builder.extend(new WearableExtender());
 
+        //Send the defined notification to the initialized NotificationManager object
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(1, builder.build());
     }
