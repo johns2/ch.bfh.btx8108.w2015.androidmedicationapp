@@ -6,7 +6,6 @@ import android.database.Cursor;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import ch.bfh.btx8108.w2015.androidmedicationapp2.models.MedicationPlan;
 

@@ -1,6 +1,5 @@
 package ch.bfh.btx8108.w2015.androidmedicationapp2;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
@@ -15,8 +14,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.app.NotificationCompat.WearableExtender;
 
 import java.util.ArrayList;
@@ -30,7 +27,6 @@ import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.DailyTabs;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.Export;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.Medications;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController.Settings;
-import ch.bfh.btx8108.w2015.androidmedicationapp2.models.MedicationPlan;
 import ch.bfh.btx8108.w2015.androidmedicationapp2.models.User;
 
 /**

@@ -1,6 +1,5 @@
 package ch.bfh.btx8108.w2015.androidmedicationapp2.fragmentController;
 
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;

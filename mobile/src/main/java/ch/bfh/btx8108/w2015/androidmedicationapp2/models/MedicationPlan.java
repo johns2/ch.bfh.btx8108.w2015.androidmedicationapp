@@ -4,10 +4,6 @@ package ch.bfh.btx8108.w2015.androidmedicationapp2.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Date;
-import java.util.List;
-import java.sql.Time;
-
 /**
  * Created by David on 11.11.2015.
  * MedicationPlan has a list of all active medications including the alerts. Also contains the times for the standard alerts morning, noon, evening and night.

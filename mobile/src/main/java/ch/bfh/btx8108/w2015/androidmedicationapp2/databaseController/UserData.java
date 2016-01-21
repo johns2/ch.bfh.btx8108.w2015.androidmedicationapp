@@ -24,7 +24,6 @@ public class UserData extends DatabaseHelper {
     }
 
     public boolean insertUser (String username, String firstname, String lastname, String eMailAddress)    {
-        //SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("username", username);
         contentValues.put("firstname", firstname);
@@ -33,7 +32,6 @@ public class UserData extends DatabaseHelper {
         contentValues.put("Mute", false);
         contentValues.put("notificationSound", true);
         contentValues.put("notificationVibration", true);
-        //db.insert("users", null, contentValues);
         super.insertRecord(USERS_TABLE_NAME, contentValues);
         return true;
     }
@@ -75,14 +73,5 @@ public class UserData extends DatabaseHelper {
         contentValues.put("notificationSound", notificationSound);
         contentValues.put("notificationVibration", notificationVibration);
         return super.updateRecord(USERS_TABLE_NAME, "id_user", user_id, contentValues);
-    }
-
-    public Integer deleteUser (Integer user_id)
-    {
-        return super.deleteRecord(USERS_TABLE_NAME, "id_user", user_id);
-        //SQLiteDatabase db = this.getWritableDatabase();
-//        return db.delete("users",
-//                "id_user = ? ",
-//                new String[] { Integer.toString(user_id) });
     }
 }
